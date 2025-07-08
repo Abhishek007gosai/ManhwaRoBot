@@ -31,7 +31,7 @@ For example:
 
 <blockquote expandable><i>Then you will have to choose the language of the manga. Depending on this language, you will be able to choose the website where you could download the manga. Here you will have the option to subscribe, or to choose a chapter to download. The chapters are sorted according to the website.</i></blockquote>
 
-<blockquote><b>Updates Channel : @Wizard_bots</b></blockquote>
+<blockquote><b>Updates Channel : @AnimeNexusNetwork</b></blockquote>
 """
 
 
@@ -74,8 +74,8 @@ async def start(client, message):
       "\n"
       "<b><i>Check /help for more information.</i></b>"),
     reply_markup=InlineKeyboardMarkup([[        
-                                         InlineKeyboardButton('* Repo *', url = "https://github.com/Dra-Sama/mangabot"),
-                                         InlineKeyboardButton("* Support *", url = "https://t.me/WizardBotHelper")
+                                         InlineKeyboardButton('* More Channel *', url = "https://t.me/AnimeNexusNetwork/158"),
+                                         InlineKeyboardButton("* Support *", url = "https://t.me/EternalsHelplineBot")
                                      ]]))
 
 @Bot.on_message(filters.private)
