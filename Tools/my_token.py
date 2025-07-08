@@ -76,7 +76,7 @@ async def get_token(message, user_id):
     token_link = f"https://telegram.me/{Bot.username}?start={new_token}"
     short_token_link = get_short(token_link)
     button = InlineKeyboardButton("🖥 Get Token 🖥", url=short_token_link)
-    button2 = InlineKeyboardButton("📺 Watch Tutorial 📺", url="https://t.me/+KymUiadSyutiZjM1")
+    button2 = InlineKeyboardButton("📺 Watch Tutorial 📺", url="https://t.me/+wekKcN1tjbAxY2U1")
     keyboard = InlineKeyboardMarkup([
         [button],
         [button2],
