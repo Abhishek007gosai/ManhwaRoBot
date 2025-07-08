@@ -31,8 +31,8 @@ class Vars:
   DB_NAME = "cluster0"
   PING = time()
   FORCE_SUB_CHANNEL = os.environ.get("FORCE_SUB_CHANNEL", "-1001457313028")
-  SHORTENER = os.environ.get("SHORTENER", "shortxlinks.com")
-  SHORTENER_API = os.environ.get("SHORTENER_API", "64d631b036df348caab852591a09288cbf5b6809") # put {} for url, ex: shornter.api?url={}
+  SHORTENER = os.environ.get("SHORTENER", None)
+  SHORTENER_API = os.environ.get("SHORTENER_API", "") # put {} for url, ex: shornter.api?url={}
   DURATION = int(os.environ.get("DURATION", "20")) # hrs
   PICS = (
     "https://ik.imagekit.io/jbxs2z512/hd-anime-prr1y1k5gqxfcgpv.jpg?updatedAt=1748487947183",
