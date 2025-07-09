@@ -5,6 +5,7 @@ from loguru import logger
 from pyrogram import idle
 import random, os, shutil, asyncio
 
+from pyrogram import utils as pyroutils
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 class Vars:
@@ -120,6 +121,9 @@ class Vars:
   )
 
 
+
+pyroutils.MIN_CHAT_ID = -99999999999999
+pyroutils.MIN_CHANNEL_ID = -100999999999999
 
 class Manhwa_Bot(pyrogram.Client, Vars):
   def __init__(self):
