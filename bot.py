@@ -31,7 +31,7 @@ class Vars:
   
   DB_NAME = "cluster0"
   PING = time()
-  FORCE_SUB_CHANNEL = os.environ.get("FORCE_SUB_CHANNEL", "-1001457313028")
+  FORCE_SUB_CHANNEL = os.environ.get("FORCE_SUB_CHANNEL", "Anime_Eternals")
   SHORTENER = os.environ.get("SHORTENER", None)
   SHORTENER_API = os.environ.get("SHORTENER_API", "") # put {} for url, ex: shornter.api?url={}
   DURATION = int(os.environ.get("DURATION", "20")) # hrs
