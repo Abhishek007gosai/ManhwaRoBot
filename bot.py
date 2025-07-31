@@ -20,7 +20,7 @@ class Vars:
   
   LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "-1002456565415")
   UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "Anime_Eternals")
-  DB_URL = os.environ.get("DB_URL", "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+  DB_URL = os.environ.get("DB_URL", "")
   
   PORT = int(os.environ.get("PORT", "8080"))
   ADMINS = [7654385403]
