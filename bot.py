@@ -15,7 +15,7 @@ class Vars:
   API_ID = int(os.environ.get("API_ID", "29245477"))
   API_HASH = os.environ.get("API_HASH", "0abc83883262245c90ca337b7a0375c4")
   
-  BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+  BOT_TOKEN = os.environ.get("BOT_TOKEN", "7689010904:AAH_8gurEpS4y8F1w7nrtEL6OvsLqdTsNVY")
   plugins = dict(
     root="TG",
     #include=["TG.users"]
@@ -23,7 +23,7 @@ class Vars:
   
   LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "-1002456565415")
   UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "-1001987570479")
-  DB_URL = os.environ.get("DB_URL", "")
+  DB_URL = os.environ.get("DB_URL", "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
   
   PORT = int(os.environ.get("PORT", "5000"))
   OWNER = int(os.environ.get("OWNER","7654385403"))
@@ -35,7 +35,7 @@ class Vars:
   CONSTANT_DUMP_CHANNEL = os.environ.get("CONSTANT_DUMP_CHANNEL", None)
   WEBS_HOST = os.environ.get("True") # For Render and Koyeb
   
-  DB_NAME = "Manhwadb"
+  DB_NAME = "cluster0"
   PING = time()
   
   SHORTENER = os.environ.get("SHORTENER", None)
@@ -249,7 +249,7 @@ class Manhwa_Bot(pyrogram.Client, Vars):
 
     """)
     self.username = usr_bot_me.username
-    self.logger.info("Make By https://t.me/Wizard_Bots ")
+    self.logger.info("Make By https://t.me/AnimeNexusNetwork ")
     self.logger.info(f"Manhwa Bot Started as {usr_bot_me.first_name} | @{usr_bot_me.username}")
 
     if self.WEBS_HOST:
@@ -262,7 +262,7 @@ Sleep mode deactivated. Neural cores at 100%. Feed me tasks, and watch magic hap
 
     button = [[
       InlineKeyboardButton('*Start Now*', url= "https://t.me/Manga_Downloaderx_bot?start=start"),
-      InlineKeyboardButton("*Channel*", url = "telegram.me/Wizard_Bots")
+      InlineKeyboardButton("*Channel*", url = "telegram.me/MangaNexus")
     ]]
 
     try: await self.send_photo(self.UPDATE_CHANNEL, photo=PICS, caption=MSG, reply_markup=InlineKeyboardMarkup(button))
