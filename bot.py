@@ -15,7 +15,7 @@ class Vars:
   API_ID = int(os.environ.get("API_ID", "29245477"))
   API_HASH = os.environ.get("API_HASH", "0abc83883262245c90ca337b7a0375c4")
   
-  BOT_TOKEN = os.environ.get("BOT_TOKEN", "7689010904:AAH_8gurEpS4y8F1w7nrtEL6OvsLqdTsNVY")
+  BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
   plugins = dict(
     root="TG",
     #include=["TG.users"]
@@ -23,7 +23,7 @@ class Vars:
   
   LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "-1002456565415")
   UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "MangaNexus")
-  DB_URL = os.environ.get("DB_URL", "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority")
+  DB_URL = os.environ.get("DB_URL", "")
   
   PORT = int(os.environ.get("PORT", "5000"))
   OWNER = int(os.environ.get("OWNER","7654385403"))
@@ -261,7 +261,7 @@ Sleep mode deactivated. Neural cores at 100%. Feed me tasks, and watch magic hap
     PICS = random.choice(Vars.PICS)
 
     button = [[
-      InlineKeyboardButton('*Start Now*', url= "https://t.me/Manga_Downloaderx_bot?start=start"),
+      InlineKeyboardButton('*Start Now*', url= "https://t.me/ToukaManhwaBot?start=start"),
       InlineKeyboardButton("*Channel*", url = "telegram.me/MangaNexus")
     ]]
 
