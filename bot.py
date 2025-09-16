@@ -22,7 +22,7 @@ class Vars:
   )
   
   LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "-1002456565415")
-  UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "MangaNexus")
+  UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "-1001987570479")
   DB_URL = os.environ.get("DB_URL", "")
   
   PORT = int(os.environ.get("PORT", "5000"))
@@ -33,7 +33,7 @@ class Vars:
   
   IS_PRIVATE = os.environ.get("IS_PRIVATE", None) #True Or None  Bot is for admins only
   CONSTANT_DUMP_CHANNEL = os.environ.get("CONSTANT_DUMP_CHANNEL", None)
-  WEBS_HOST = os.environ.get("WEBS_HOST", "True") # For Render and Koyeb
+  WEBS_HOST = os.environ.get("True") # For Render and Koyeb
   
   DB_NAME = "Manhwadb"
   PING = time()
