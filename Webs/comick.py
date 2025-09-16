@@ -3,7 +3,7 @@ import json
 from bs4 import BeautifulSoup
 
 from loguru import logger
-from .utitls import DEFAULT_MSG_FORMAT
+from .utitls import DEAULT_MSG_FORMAT
 
 
 class ComickWebs(Scraper):
@@ -61,7 +61,7 @@ class ComickWebs(Scraper):
     desc = desc if desc else "N/A"
     data['title'] = title
 
-    data['msg'] = DEFAULT_MSG_FORMAT.format(title=title,
+    data['msg'] = DEAULT_MSG_FORMAT.format(title=title,
                                            status=status,
                                            genres=genres,
                                            summary=desc[:200],
@@ -153,5 +153,3 @@ class ComickWebs(Scraper):
     ]
 
     return images_url
-
-  
