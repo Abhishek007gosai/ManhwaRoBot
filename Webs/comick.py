@@ -3,7 +3,7 @@ import json
 from bs4 import BeautifulSoup
 
 from loguru import logger
-from .utils import DEFAULT_MSG_FORMAT
+from .utitls import DEFAULT_MSG_FORMAT
 
 
 class ComickWebs(Scraper):
