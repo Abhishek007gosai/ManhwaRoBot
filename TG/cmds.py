@@ -32,7 +32,7 @@ For example:
 
 <blockquote expandable><i>Then you will have to choose the language of the manga. Depending on this language, you will be able to choose the website where you could download the manga. Here you will have the option to subscribe, or to choose a chapter to download. The chapters are sorted according to the website.</i></blockquote>
 
-<blockquote><b>Updates Channel : @Wizard_bots</b></blockquote>
+<blockquote><b>Updates Channel : @MangaNexus</b></blockquote>
 """
 
 @Bot.on_message(filters.private)
@@ -111,7 +111,7 @@ async def my_plan(client, message):
 <i>Thanks For Buying It......</i>""",
                         quote=True,
                         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
-                            " Close ", callback_data="kclose")]])
+                            " ᴄʟᴏsᴇ ", callback_data="kclose")]])
                        )
   else:
     await message.reply(
@@ -169,12 +169,12 @@ async def start(client, message):
        "<b><i>Check /help for more information.</i></b>"),
       reply_markup=InlineKeyboardMarkup([
         [
-          InlineKeyboardButton('✯ Repo ✯', url="https://github.com/Dra-Sama/Manhwa-Bot"),
-          InlineKeyboardButton("✯ Support ✯", url="https://t.me/WizardBotHelper")
+          InlineKeyboardButton('✯ ᴍᴏʀᴇ ʙᴏᴛs ✯', url="https://t.me/AnimeNexusNetwork/160"),
+          InlineKeyboardButton("✯ sᴜᴘᴘᴏʀᴛ ✯", url="https://t.me/EternalsHelplineBot")
         ],
         [
-          InlineKeyboardButton("♛ Setting ♛", callback_data="mus"),
-          InlineKeyboardButton("♞ Close ♞", callback_data="kclose")
+          InlineKeyboardButton("sᴇᴛᴛɪɴɢs", callback_data="mus"),
+          InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="kclose")
         ]
       ]))
 
