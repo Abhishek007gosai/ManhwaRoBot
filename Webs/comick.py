@@ -61,7 +61,7 @@ class ComickWebs(Scraper):
     desc = desc if desc else "N/A"
     data['title'] = title
 
-    data['msg'] = DEAULT_MSG_FORMAT.format(title=title,
+    data['msg'] = DEFAULT_MSG_FORMAT.format(title=title,
                                            status=status,
                                            genres=genres,
                                            summary=desc[:200],
