@@ -17,13 +17,11 @@ def format_message(title: str, author: str = "Unknown", year: str = "") -> str:
     """
     return DEAULT_MSG_FORMAT.format(title=title, author=author, year=year)
 
-
 def safe_get(dictionary: dict, key: str, default=None):
     """
     Safe dictionary getter to avoid KeyError.
     """
     return dictionary[key] if key in dictionary else default
-
 
 def clean_text(text: str) -> str:
     """
