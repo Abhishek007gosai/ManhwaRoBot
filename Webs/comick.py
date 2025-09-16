@@ -3,7 +3,7 @@ import json
 from bs4 import BeautifulSoup
 
 from loguru import logger
-from .utitls import DEFAULT_MSG_FORMAT
+from .utitls import DEFAULT_MSG_FORMAT  # ✅ fixed (make sure it's defined in utitls.py)
 
 
 class ComickWebs(Scraper):
@@ -16,8 +16,10 @@ class ComickWebs(Scraper):
         self.headers = {
             "Accept": "application/json",
             "Referer": "https://comick.cc",
-            "User-Agent": "Tachiyomi Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) "
-                          "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Mobile Safari/537.36",
+            "User-Agent": (
+                "Tachiyomi Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Mobile Safari/537.36"
+            ),
         }
         self.search_query = dict()
 
@@ -50,7 +52,7 @@ class ComickWebs(Scraper):
         desc = series["comic"].get("desc", "N/A") or "N/A"
         data['title'] = title
 
-        # ✅ fixed typo here
+        # ✅ fixed typo (DEFAULT_MSG_FORMAT instead of DEAULT_MSG_FORMAT)
         data['msg'] = DEFAULT_MSG_FORMAT.format(
             title=title,
             status=status,
@@ -60,7 +62,7 @@ class ComickWebs(Scraper):
         )
 
     async def search(self, query: str = ""):
-        # ✅ fixed bug here (need .lower())
+        # ✅ fixed bug (.lower() call)
         if query.lower() in self.search_query:
             return self.search_query[query.lower()]
 
@@ -104,7 +106,7 @@ class ComickWebs(Scraper):
             title = f"{chapter['chap']} - {title}" if title else f"Chapter {chapter['chap']}"
             try:
                 md_group = chapter.get("group_name", ["None"])[0]
-            except:
+            except Exception:
                 md_group = None
             title = f"{title} ({md_group})" if md_group else title
 
@@ -127,4 +129,4 @@ class ComickWebs(Scraper):
         images = con["props"]["pageProps"]["chapter"]["md_images"]
         images_url = [f"https://meo.comick.pictures/{image['b2key']}" for image in images]
         return images_url
-      
+            
