@@ -15,7 +15,7 @@ class Vars:
   API_ID = int(os.environ.get("API_ID", "29245477"))
   API_HASH = os.environ.get("API_HASH", "0abc83883262245c90ca337b7a0375c4")
   
-  BOT_TOKEN = os.environ.get("BOT_TOKEN", "7845096754:AAHCI-HO7NnWiZR-uIxZRbFgw-gAwb7tIjA")
+  BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
   plugins = dict(
     root="TG",
     #include=["TG.users"]
@@ -23,7 +23,7 @@ class Vars:
   
   LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "-1002456565415")
   UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "MangaNexus")
-  DB_URL = os.environ.get("DB_URL", "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+  DB_URL = os.environ.get("DB_URL", "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority")
   
   PORT = int(os.environ.get("PORT", "5000"))
   OWNER = int(os.environ.get("OWNER","7654385403"))
@@ -35,7 +35,7 @@ class Vars:
   CONSTANT_DUMP_CHANNEL = os.environ.get("CONSTANT_DUMP_CHANNEL", None)
   WEBS_HOST = True # For Render and Koyeb
   
-  DB_NAME = "cluster0"
+  DB_NAME = "Cluster0"
   PING = time()
   
   SHORTENER = os.environ.get("SHORTENER", None)
