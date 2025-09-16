@@ -15,14 +15,14 @@ class Vars:
   API_ID = int(os.environ.get("API_ID", "29245477"))
   API_HASH = os.environ.get("API_HASH", "0abc83883262245c90ca337b7a0375c4")
   
-  BOT_TOKEN = os.environ.get("BOT_TOKEN", "7689010904:AAH_8gurEpS4y8F1w7nrtEL6OvsLqdTsNVY")
+  BOT_TOKEN = os.environ.get("BOT_TOKEN", "7845096754:AAHCI-HO7NnWiZR-uIxZRbFgw-gAwb7tIjA")
   plugins = dict(
     root="TG",
     #include=["TG.users"]
   )
   
   LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "-1002456565415")
-  UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "-1001987570479")
+  UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "MangaNexus")
   DB_URL = os.environ.get("DB_URL", "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
   
   PORT = int(os.environ.get("PORT", "5000"))
@@ -39,13 +39,13 @@ class Vars:
   PING = time()
   
   SHORTENER = os.environ.get("SHORTENER", None)
-  SHORTENER_API = os.environ.get("SHORTENER_API", "") # put {} for url, ex: shornter.api?url={}
+  SHORTENER_API = os.environ.get("SHORTENER_API", None) # put {} for url, ex: shornter.api?url={}
   DURATION = int(os.environ.get("DURATION", "20")) # hrs
   
   FORCE_SUB_TEXT = os.environ.get("FORCE_SUB_TEXT", """<b><i>❗️ You must join our channel before using this feature:</i></b>""")
   
   # Force Sub Channel Format : Button Text: Username(Without @) or Chat ID
-  FORCE_SUB_CHANNEL = os.environ.get("FORCE_SUB_CHANNEL", "𝕵𝖔𝖎𝖓 𝕮𝖍𝖆𝖓𝖓𝖊𝖑: +K5B4waccMC0yMmU9, 𝕸𝖆𝖎𝖓 𝕮𝖍𝖆𝖓𝖓𝖊𝖑: AnimeNexusNetwork")
+  FORCE_SUB_CHANNEL = os.environ.get("FORCE_SUB_CHANNEL", "𝕸𝖆𝖎𝖓 𝕮𝖍𝖆𝖓𝖓𝖊𝖑: AnimeNexusNetwork")
   
   BYPASS_TXT = os.environ.get("BYPASS_TXT", """<blockquote><b>🚨 ʙʏᴘᴀss ᴅᴇᴛᴇᴄᴛᴇᴅ 🚨</b></blockquote>
 
