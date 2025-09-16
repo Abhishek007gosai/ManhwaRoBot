@@ -35,7 +35,7 @@ class Vars:
   CONSTANT_DUMP_CHANNEL = os.environ.get("CONSTANT_DUMP_CHANNEL", None)
   WEBS_HOST = True # For Render and Koyeb
   
-  DB_NAME = "Cluster0"
+  DB_NAME = "cluster0"
   PING = time()
   
   SHORTENER = os.environ.get("SHORTENER", None)
