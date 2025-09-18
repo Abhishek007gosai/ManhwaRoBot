@@ -6,6 +6,8 @@ from urllib.parse import urlparse, urljoin, quote, quote_plus
 
 import re
 from loguru import logger
+from .utitls import DEAULT_MSG_FORMAT
+
 
 class Manhwa18Webs(Scraper):
   def __init__(self):
@@ -48,17 +50,20 @@ class Manhwa18Webs(Scraper):
     container = bs.find(class_="genres-content") if bs else None
     geners = container.text.strip() if container else "N/A"
 
-    msg = f"<b>{results['title']}</b>\n"
-    msg += f"<b>Url</b>: {results['url']}\n"
-
-    msg += f"<b>Geners</b>: <code>{geners}</code>\n\n"
     container = bs.find(class_="dsct")
-
     des = container.text.strip() if container else "N/A"
-    msg += f"<b>Description</b>: <code>{des}</code>\n"
 
-    results['msg'] = msg
-
+    results['msg'] = DEAULT_MSG_FORMAT.format(
+      title=results['title'],
+      status="N/A",
+      genres=geners if geners else "N/A",
+      summary=des[:400] if des else "N/A",
+      url=results['url']
+    )
+    _poster = bs.find(class_="summary_image")
+    if "poster" not in results:
+      results['poster'] = _poster.findNext("img").get("src") if _poster else None
+    
     chapters = bs.find("ul", {"class": "row-content-chapter"})
     chapters = chapters.find_all("li", {"class": "a-h"}) if chapters else []
 
@@ -93,34 +98,4 @@ class Manhwa18Webs(Scraper):
     
     return images_url
 
-  async def get_updates(self, page:int=1):
-    output = []
-    while page < 3:
-      url = f"https://manhwa18.cc/page/{page}/"
-      try: content = await self.get(url)
-      except: content = None
-      if content:
-        bs = BeautifulSoup(content, "html.parser")
-
-        cards = bs.find_all("div", {"class": "data wleft"})
-        if cards:
-          for card in cards:
-            try:
-              data = {}
-              data['url'] = urljoin(self.url, card.find_next("a").get("href"))
-              data['manga_title'] = card.find_next("a").get("title")
-
-              #data['poster'] = card.find_next("img")['src']
-              span_tag = card.find_next("a", class_="btn-link")
-
-              data['title'] = span_tag.text.strip()
-              data['chapter_url'] = urljoin(self.url, span_tag.find_next("a").get('href'))
-
-              output.append(data)
-              #print(data)
-            except:
-              continue
-
-      page += 1
-
-    return output
+  
