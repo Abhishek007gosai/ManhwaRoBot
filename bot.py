@@ -12,28 +12,28 @@ import sys
 
 
 class Vars:
-  API_ID = int(os.environ.get("API_ID", "0"))
-  API_HASH = os.environ.get("API_HASH", "dummy_hash")
+  API_ID = int(os.environ.get("API_ID", "29245477"))
+  API_HASH = os.environ.get("API_HASH", "0abc83883262245c90ca337b7a0375c4")
   
-  BOT_TOKEN = os.environ.get("BOT_TOKEN", "dummy_token")
+  BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
   plugins = dict(
     root="TG",
     #include=["TG.users"]
   )
   
-  LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "")
-  UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
+  LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "-1002456565415")
+  UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "-1002583684553")
   DB_URL = os.environ.get("DB_URL", "mongodb://localhost:27017/manhwa_bot")
   
   PORT = int(os.environ.get("PORT", "5000"))
-  OWNER = int(os.environ.get("OWNER","1880221341"))
-  ADMINS = os.environ.get("ADMINS", "1880221341")
+  OWNER = int(os.environ.get("OWNER","7654385403"))
+  ADMINS = os.environ.get("ADMINS", "7654385403")
   ADMINS = [int(admin) for admin in (ADMINS).split(" ")]
   ADMINS.append(OWNER)
   
   IS_PRIVATE = os.environ.get("IS_PRIVATE", None) #True Or None  Bot is for admins only
   CONSTANT_DUMP_CHANNEL = os.environ.get("CONSTANT_DUMP_CHANNEL", None)
-  WEBS_HOST = os.environ.get("WEBS_HOST", None) # For Render and Koyeb
+  WEBS_HOST = True # For Render and Koyeb
   
   DB_NAME = "Manhwadb"
   PING = time()
@@ -45,7 +45,7 @@ class Vars:
   FORCE_SUB_TEXT = os.environ.get("FORCE_SUB_TEXT", """<b><i>❗️ You must join our channel before using this feature:</i></b>""")
   
   # Force Sub Channel Format : Button Text: Username(Without @) or Chat ID
-  FORCE_SUB_CHANNEL = os.environ.get("FORCE_SUB_CHANNEL", "𝕵𝖔𝖎𝖓 𝕮𝖍𝖆𝖓𝖓𝖊𝖑: Guimi_Zhi_Zhu_Anime, 𝕸𝖆𝖎𝖓 𝕮𝖍𝖆𝖓𝖓𝖊𝖑: Wizard_Bots")
+  FORCE_SUB_CHANNEL = os.environ.get("FORCE_SUB_CHANNEL", "𝕵𝖔𝖎𝖓 𝕮𝖍𝖆𝖓𝖓𝖊𝖑: AnimeNexusNetwotk, 𝕸𝖆𝖎𝖓 𝕮𝖍𝖆𝖓𝖓𝖊𝖑: MangaNexus")
   
   BYPASS_TXT = os.environ.get("BYPASS_TXT", """<blockquote><b>🚨 ʙʏᴘᴀss ᴅᴇᴛᴇᴄᴛᴇᴅ 🚨</b></blockquote>
 
@@ -262,7 +262,7 @@ Sleep mode deactivated. Neural cores at 100%. Feed me tasks, and watch magic hap
 
     button = [[
       InlineKeyboardButton('*Start Now*', url= f"https://t.me/{usr_bot_me.username}?start=start"),
-      InlineKeyboardButton("*Channel*", url = "telegram.me/Wizard_Bots")
+      InlineKeyboardButton("*Channel*", url = "telegram.me/AnimeNexuNetwork")
     ]]
 
     try: await self.send_photo(self.UPDATE_CHANNEL, photo=PICS, caption=MSG, reply_markup=InlineKeyboardMarkup(button))
