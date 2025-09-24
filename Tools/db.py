@@ -215,7 +215,7 @@ def get_all_subs():
                        "title": manga_title,
                        "lastest_chapter": lastest_chapter, at int or float or None
                        "users": [user_id, user_id, user_id, .................],
-                 }
+                }
             }
             ...............
             ...............
@@ -224,16 +224,12 @@ def get_all_subs():
     subs_list = {}
 
     users_list = [j for i in users.find() for j in i]
-    if '_id' in users_list:
-        users_list.remove('_id')
+    users_list.remove('_id')
 
     for user_id in users_list:
         if user_id in uts:
-            subs_data = uts[user_id].get("subs", {})
-
-            # ✅ Fix: Only process if subs_data is a dict
-            if isinstance(subs_data, dict):
-                for j, i in subs_data.items():
+            if "subs" in uts[user_id]:
+                for j, i in uts[user_id]['subs'].items():
                     if j not in subs_list:
                         subs_list[j] = {}
 
@@ -245,7 +241,9 @@ def get_all_subs():
                             }
 
                             if 'lastest_chapter' in data:
-                                subs_list[j][data['url']]['lastest_chapter'] = data['lastest_chapter']
+                                subs_list[j][
+                                    data['url']]['lastest_chapter'] = data[
+                                        'lastest_chapter']
 
                         if user_id not in subs_list[j][data['url']]['users']:
                             subs_list[j][data['url']]['users'].append(user_id)
@@ -285,5 +283,28 @@ async def save_lastest_chapter(data):
 
                     # Remove old 'last_chapter' field if it exists
                     if "last_chapter" in manga_data:
-                        del manga_data["last_chapter_]()_
-     
+                        del manga_data["last_chapter"]
+
+                    # Update with new 'lastest_chapter' field
+                    if manga_data.get('lastest_chapter') != data['title']:
+                        manga_data['lastest_chapter'] = data['title']
+                        
+                        if data['web'] == "ck":
+                            if 'slug' in data:
+                                manga_data['slug'] = data.get('slug', None)
+                            if 'hid' in data:
+                                manga_data['hid'] = data.get('hid', None)
+                            
+                        subscribed_manga[index] = manga_data
+                        
+                        updated = True
+                        break  # Found and updated, break the loop
+
+            # Only sync if actually updated
+            if updated:
+                uts[user_id]['subs'][data['webs']] = subscribed_manga
+                #logger.info(f"{user_id} => {subscribed_manga}")
+                sync()
+
+        except Exception as e:
+            print(f"Error updating user {user_id}: {str(e)}")
