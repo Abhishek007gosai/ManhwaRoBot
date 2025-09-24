@@ -33,7 +33,7 @@ class Vars:
   
   IS_PRIVATE = os.environ.get("IS_PRIVATE", None) #True Or None  Bot is for admins only
   CONSTANT_DUMP_CHANNEL = os.environ.get("CONSTANT_DUMP_CHANNEL", None)
-  WEBS_HOST = os.environ.get("True") # For Render and Koyeb
+  WEBS_HOST = "True" # For Render and Koyeb
   
   DB_NAME = "cluster0"
   PING = time()
