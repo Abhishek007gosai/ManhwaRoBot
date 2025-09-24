@@ -15,7 +15,7 @@ class Vars:
   API_ID = 29245477
   API_HASH = "0abc83883262245c90ca337b7a0375c4"
   
-  BOT_TOKEN = "7845096754:AAHRWOVGfSwFUYtiWOuuDWH0NN3r1NnDbnQ"
+  BOT_TOKEN = ""
   plugins = dict(
     root="TG",
     #include=["TG.users"]
@@ -23,7 +23,7 @@ class Vars:
   
   LOG_CHANNEL = -1002456565415
   UPDATE_CHANNEL = -1002583684553
-  DB_URL = "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority"
+  DB_URL = ""
   
   PORT = "5000"
   OWNER = int(os.environ.get("OWNER","7654385403"))
