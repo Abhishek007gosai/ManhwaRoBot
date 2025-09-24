@@ -12,18 +12,18 @@ import sys
 
 
 class Vars:
-  API_ID = int(os.environ.get("API_ID", "29245477"))
-  API_HASH = os.environ.get("API_HASH", "0abc83883262245c90ca337b7a0375c4")
+  API_ID = 29245477
+  API_HASH = "0abc83883262245c90ca337b7a0375c4"
   
-  BOT_TOKEN = os.environ.get("BOT_TOKEN", "7689010904:AAF9iXH3annZ5BobOAZADmwttpKaEWMebzQ")
+  BOT_TOKEN = "7689010904:AAF9iXH3annZ5BobOAZADmwttpKaEWMebzQ"
   plugins = dict(
     root="TG",
     #include=["TG.users"]
   )
   
-  LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "-1002456565415")
-  UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "-1002583684553")
-  DB_URL = os.environ.get("DB_URL", "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+  LOG_CHANNEL = -1002456565415
+  UPDATE_CHANNEL = (-1002583684553)
+  DB_URL = "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@Cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
   
   PORT = 5000
   OWNER = int(os.environ.get("OWNER","7654385403"))
@@ -35,7 +35,7 @@ class Vars:
   CONSTANT_DUMP_CHANNEL = os.environ.get("CONSTANT_DUMP_CHANNEL", None)
   WEBS_HOST = True # For Render and Koyeb
   
-  DB_NAME = "Manhwadb"
+  DB_NAME = "Cluster0"
   PING = time()
   
   SHORTENER = os.environ.get("SHORTENER", None)
