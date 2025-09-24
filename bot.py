@@ -262,7 +262,7 @@ Sleep mode deactivated. Neural cores at 100%. Feed me tasks, and watch magic hap
 
     button = [[
       InlineKeyboardButton('*Start Now*', url= f"https://t.me/{usr_bot_me.username}?start=start"),
-      InlineKeyboardButton("*Channel*", url = "telegram.me/AnimeNexuNetwork")
+      InlineKeyboardButton('*Channel*', url = "https://t.me/AnimeNexuNetwork")
     ]]
 
     try: await self.send_photo(self.UPDATE_CHANNEL, photo=PICS, caption=MSG, reply_markup=InlineKeyboardMarkup(button))
