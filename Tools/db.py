@@ -85,6 +85,7 @@ async def get_all_premuim():
             except:
                 continue
 
+
 async def premium_user(user_id=None):
     user_id = str(user_id)
     return pts[user_id] if user_id in pts else None
@@ -109,6 +110,7 @@ def get_users(user_id=None):
                 continue
 
     return users_id_list
+
 
 async def add_sub(user_id, data, web: str, chapter=None):
     user_id = str(user_id)
@@ -158,6 +160,7 @@ def get_subs(user_id, manga_url=None, web=None):
                     subsList.extend(j)
 
     return subsList
+
 
 async def delete_sub(user_id, manga_url=None, web=None):
     """
@@ -246,6 +249,7 @@ def get_all_subs():
                             subs_list[j][data['url']]['users'].append(user_id)
 
     return subs_list
+
 
 async def save_lastest_chapter(data):
     """
