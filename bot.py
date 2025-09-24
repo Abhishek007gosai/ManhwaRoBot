@@ -23,7 +23,7 @@ class Vars:
   
   LOG_CHANNEL = -1002456565415
   UPDATE_CHANNEL = (-1002583684553)
-  DB_URL = "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@Cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  DB_URL = "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@cluster0.lz2m8iy.mongodb.net/"
   
   PORT = 5000
   OWNER = int(os.environ.get("OWNER","7654385403"))
@@ -35,7 +35,7 @@ class Vars:
   CONSTANT_DUMP_CHANNEL = os.environ.get("CONSTANT_DUMP_CHANNEL", None)
   WEBS_HOST = True # For Render and Koyeb
   
-  DB_NAME = "Cluster0"
+  DB_NAME = "cluster0"
   PING = time()
   
   SHORTENER = os.environ.get("SHORTENER", None)
