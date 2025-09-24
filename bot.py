@@ -45,13 +45,13 @@ class Vars:
   FORCE_SUB_TEXT = os.environ.get("FORCE_SUB_TEXT", """<b><i>❗️ You must join our channel before using this feature:</i></b>""")
   
   # Force Sub Channel Format : Button Text: Username(Without @) or Chat ID
-  FORCE_SUB_CHANNEL = os.environ.get("FORCE_SUB_CHANNEL", "-1001987570479")
+  FORCE_SUB_CHANNEL = os.environ.get("FORCE_SUB_CHANNEL", "Jᴏɪɴ ᴄʜᴀɴɴᴇʟ -1001607131442  ,Jᴏɪɴ ᴄʜᴀɴɴᴇʟ -1001987570479")
   
   BYPASS_TXT = os.environ.get("BYPASS_TXT", """<blockquote><b>🚨 ʙʏᴘᴀss ᴅᴇᴛᴇᴄᴛᴇᴅ 🚨</b></blockquote>
 
 <blockquote expandable><b>ʜᴏᴡ ᴍᴀɴʏ ᴛɪᴍᴇs ʜᴀᴠᴇ ɪ ᴛᴏʟᴅ ʏᴏᴜ, ᴅᴏɴ'ᴛ ᴛʀʏ ᴛᴏ ᴏᴜᴛsᴍᴀʀᴛ ʏᴏᴜʀ ᴅᴀᴅ 🥸🖕
 
-ɴᴏᴡ ʙᴇ ᴀ ɢᴏᴏᴅ ʙᴏʏ ᴀɴᴅ sᴏʟᴠᴇ ɪᴛ ᴀɢᴀɪɴ, ᴀɴᴅ ᴛʜɪs ᴛɪᴍᴇ ᴅᴏɴ'ᴛ ɢᴇᴛ sᴍᴀʀᴛ !! 🌚💭</b></blockquote>""")
+ɴᴏᴡ ʙᴇ ᴀ ɢᴏᴏᴅ ʙᴏʏ ᴀɴ sᴏʟᴠᴇ ɪᴛ ᴀɢᴀɪɴ, ᴀɴᴅ ᴛʜɪs ᴛɪᴍᴇ ᴅᴏɴ'ᴛ ɢᴇᴛ sᴍᴀʀᴛ !! 🌚💭</b></blockquote>""")
 
   PICS = (
     "https://img3.teletype.in/files/67/73/67735f4f-933a-41d9-86b9-609fa03b6614.jpeg",
