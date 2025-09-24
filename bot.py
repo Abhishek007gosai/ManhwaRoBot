@@ -25,7 +25,7 @@ class Vars:
   UPDATE_CHANNEL = -1002583684553
   DB_URL = "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority"
   
-  PORT = 5000
+  PORT = "5000"
   OWNER = int(os.environ.get("OWNER","7654385403"))
   ADMINS = os.environ.get("ADMINS", "7654385403")
   ADMINS = [int(admin) for admin in (ADMINS).split(" ")]
