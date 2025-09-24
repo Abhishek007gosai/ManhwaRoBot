@@ -45,7 +45,7 @@ class Vars:
   FORCE_SUB_TEXT = os.environ.get("FORCE_SUB_TEXT", """<b><i>❗️ You must join our channel before using this feature:</i></b>""")
   
   # Force Sub Channel Format : Button Text: Username(Without @) or Chat ID
-  FORCE_SUB_CHANNEL = os.environ.get("FORCE_SUB_CHANNEL", "Jᴏɪɴ ᴄʜᴀɴɴᴇʟ -1001607131442  ,Jᴏɪɴ ᴄʜᴀɴɴᴇʟ -1001987570479")
+  FORCE_SUB_CHANNEL = os.environ.get("FORCE_SUB_CHANNEL", "𝕵𝖔𝖎𝖓 𝕮𝖍𝖆𝖓𝖓𝖊𝖑: AnimeNexusNetwork, 𝕸𝖆𝖎𝖓 𝕮𝖍𝖆𝖓𝖓𝖊𝖑: MangaNexus")
   
   BYPASS_TXT = os.environ.get("BYPASS_TXT", """<blockquote><b>🚨 ʙʏᴘᴀss ᴅᴇᴛᴇᴄᴛᴇᴅ 🚨</b></blockquote>
 
