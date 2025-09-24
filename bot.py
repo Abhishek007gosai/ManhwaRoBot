@@ -15,7 +15,7 @@ class Vars:
   API_ID = 29245477
   API_HASH = "0abc83883262245c90ca337b7a0375c4"
   
-  BOT_TOKEN = "7689010904:AAEpfumOnmyuwuxnhoPfCfz-6Wppisq5sds"
+  BOT_TOKEN = "7845096754:AAHRWOVGfSwFUYtiWOuuDWH0NN3r1NnDbnQ"
   plugins = dict(
     root="TG",
     #include=["TG.users"]
