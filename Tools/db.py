@@ -6,18 +6,13 @@ user_id: {
         "ck": [],
         "as": [],
         ................
-        ................
      },
      setting: {
         "file_name": "",
         "caption": "",
         ................
-        .................
      }
 }
-.................
-.................
-.................
 .................
 """
 
@@ -48,6 +43,7 @@ def sync(name=None, type=None):
 
 def premuim_sync():
     acollection.replace_one({'_id': Vars.DB_NAME}, pts)
+
 
 async def add_premium(user_id, time_limit_days):
     user_id = str(user_id)
@@ -108,7 +104,6 @@ def get_users(user_id=None):
                     users_id_list.append(int(j))
             except:
                 continue
-
     return users_id_list
 
 
@@ -127,6 +122,7 @@ async def add_sub(user_id, data, web: str, chapter=None):
         uts[user_id]["subs"][web] = []
         sync()
 
+    # Ensure data is a dict and not duplicate
     if data not in uts[user_id]["subs"][web]:
         uts[user_id]["subs"][web].append(data)
         sync()
@@ -148,30 +144,19 @@ def get_subs(user_id, manga_url=None, web=None):
     if user_info:
         if web and web in user_info["subs"]:
             if manga_url:
-                return True if any(data['url'] == manga_url for data in user_info["subs"][web]) else None
-
+                return any(data.get('url') == manga_url for data in user_info["subs"][web])
             else:
                 subsList.extend(user_info['subs'][web])
         else:
             for j in user_info["subs"].values():
                 if manga_url:
-                    return True if any(url['url'] == manga_url for url in j) else None
+                    return any(url.get('url') == manga_url for url in j)
                 else:
                     subsList.extend(j)
-
     return subsList
 
 
 async def delete_sub(user_id, manga_url=None, web=None):
-    """
-    This function Use to Delete Subscried Manga From User..
-    params:
-     user_id : required 
-     manga_url : optional => If manga_url is not given then it will delete all subscried manga from user, if web given then it will delete all subscried manga from user in that web
-     web : optional => If web is not given then it will delete all subscried manga from user
-    extra:
-       if the len of subscried manga is 0 then it will delete it from database
-    """
     user_id = str(user_id)
     user_info = get_users(user_id)
 
@@ -186,25 +171,21 @@ async def delete_sub(user_id, manga_url=None, web=None):
                 del uts[user_id]['subs'][web]
                 sync()
 
-            for data in user_info['subs'][web]:
+            for data in list(user_info['subs'][web]):
                 if manga_url and data.get('url') == manga_url:
+                    uts[user_id]['subs'][web].remove(data)
                     if len(uts[user_id]['subs'][web]) == 0:
                         del uts[user_id]['subs'][web]
-                        sync()
-                    else:
-                        uts[user_id]['subs'][web].remove(data)
-                        sync()
+                    sync()
 
         else:
-            for website, web_subs in user_info['subs'].items():
-                for data in web_subs:
+            for website, web_subs in list(user_info['subs'].items()):
+                for data in list(web_subs):
                     if data.get('url') == manga_url:
+                        uts[user_id]['subs'][website].remove(data)
                         if len(uts[user_id]['subs'][website]) == 0:
                             del uts[user_id]['subs'][website]
-                            sync()
-                        else:
-                            uts[user_id]['subs'][website].remove(data)
-                            sync()
+                        sync()
 
 
 def get_all_subs():
@@ -212,12 +193,11 @@ def get_all_subs():
     return format => {
             web(Webs.sf): {
                  "url" (manga_url): {
-                       "title": manga_title,
-                       "lastest_chapter": lastest_chapter, at int or float or None
-                       "users": [user_id, user_id, user_id, .................],
-                }
+                      "title": manga_title,
+                      "lastest_chapter": lastest_chapter, at int or float or None
+                      "users": [user_id, user_id, user_id, .................],
+                 }
             }
-            ...............
             ...............
         }
     """
@@ -229,24 +209,25 @@ def get_all_subs():
     for user_id in users_list:
         if user_id in uts:
             if "subs" in uts[user_id]:
-                for j, i in uts[user_id]['subs'].items():
-                    if j not in subs_list:
-                        subs_list[j] = {}
+                for web, sub_data_list in uts[user_id]['subs'].items():
+                    if web not in subs_list:
+                        subs_list[web] = {}
 
-                    for data in i:
-                        if data['url'] not in subs_list[j]:
-                            subs_list[j][data['url']] = {
-                                "title": data['title'],
-                                "users": []
+                    for data in sub_data_list:
+                        url = data.get('url')
+                        if not url:
+                            continue
+
+                        if url not in subs_list[web]:
+                            subs_list[web][url] = {
+                                "title": data.get('title'),
+                                "users": [],
                             }
-
                             if 'lastest_chapter' in data:
-                                subs_list[j][
-                                    data['url']]['lastest_chapter'] = data[
-                                        'lastest_chapter']
+                                subs_list[web][url]['lastest_chapter'] = data['lastest_chapter']
 
-                        if user_id not in subs_list[j][data['url']]['users']:
-                            subs_list[j][data['url']]['users'].append(user_id)
+                        if user_id not in subs_list[web][url]['users']:
+                            subs_list[web][url]['users'].append(user_id)
 
     return subs_list
 
@@ -254,57 +235,39 @@ def get_all_subs():
 async def save_lastest_chapter(data):
     """
     Update the latest chapter for subscribed manga and clean up old field
-
-    Args:
-        data: {
-            'url': manga_url, 
-            'webs': website identifier,
-            'users': [user_id1, user_id2, ...],
-            'title': latest chapter name,
-            'manga_url': manga URL,
-            'manga_title': manga title,
-            ...
-        }
     """
     for user_id in data['users']:
         try:
-            # Check if user exists and has subscriptions
-            if user_id not in uts or "subs" not in uts[user_id] or data[
-                    'webs'] not in uts[user_id]['subs']:
+            if user_id not in uts or "subs" not in uts[user_id] or data['webs'] not in uts[user_id]['subs']:
                 continue
 
             subscribed_manga = uts[user_id]['subs'][data['webs']]
             updated = False
 
             for index, manga_data in enumerate(subscribed_manga):
-                # Check if this is the manga we're looking for
                 if (manga_data.get('url') == data['manga_url']
                         or manga_data.get('title') == data.get('manga_title')):
 
-                    # Remove old 'last_chapter' field if it exists
                     if "last_chapter" in manga_data:
                         del manga_data["last_chapter"]
 
-                    # Update with new 'lastest_chapter' field
                     if manga_data.get('lastest_chapter') != data['title']:
                         manga_data['lastest_chapter'] = data['title']
-                        
+
                         if data['web'] == "ck":
                             if 'slug' in data:
                                 manga_data['slug'] = data.get('slug', None)
                             if 'hid' in data:
                                 manga_data['hid'] = data.get('hid', None)
-                            
-                        subscribed_manga[index] = manga_data
-                        
-                        updated = True
-                        break  # Found and updated, break the loop
 
-            # Only sync if actually updated
+                        subscribed_manga[index] = manga_data
+                        updated = True
+                        break
+
             if updated:
                 uts[user_id]['subs'][data['webs']] = subscribed_manga
-                #logger.info(f"{user_id} => {subscribed_manga}")
                 sync()
 
         except Exception as e:
             print(f"Error updating user {user_id}: {str(e)}")
+     
