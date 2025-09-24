@@ -15,7 +15,7 @@ class Vars:
   API_ID = int(os.environ.get("API_ID", "29245477"))
   API_HASH = os.environ.get("API_HASH", "0abc83883262245c90ca337b7a0375c4")
   
-  BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+  BOT_TOKEN = os.environ.get("BOT_TOKEN", "7689010904:AAF9iXH3annZ5BobOAZADmwttpKaEWMebzQ")
   plugins = dict(
     root="TG",
     #include=["TG.users"]
@@ -23,12 +23,12 @@ class Vars:
   
   LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "-1002456565415")
   UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "-1002583684553")
-  DB_URL = os.environ.get("DB_URL", "mongodb://localhost:27017/manhwa_bot")
+  DB_URL = os.environ.get("DB_URL", "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
   
-  PORT = int(os.environ.get("PORT", "5000"))
+  PORT = 5000
   OWNER = int(os.environ.get("OWNER","7654385403"))
   ADMINS = os.environ.get("ADMINS", "7654385403")
-  ADMINS = [int(admin) for admin in (ADMINS).split(" ")]
+  ADMINS = [int(admin) for admin in (ADMINS).split("7654385403")]
   ADMINS.append(OWNER)
   
   IS_PRIVATE = os.environ.get("IS_PRIVATE", None) #True Or None  Bot is for admins only
