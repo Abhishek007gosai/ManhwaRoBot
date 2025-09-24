@@ -22,7 +22,7 @@ class Vars:
   )
   
   LOG_CHANNEL = -1002456565415
-  UPDATE_CHANNEL = (-1002583684553)
+  UPDATE_CHANNEL = -1002583684553
   DB_URL = "mongodb+srv://Kafka:Au3OoWzCDYJKeuHU@cluster0.lz2m8iy.mongodb.net/?retryWrites=true&w=majority"
   
   PORT = 5000
@@ -33,7 +33,7 @@ class Vars:
   
   IS_PRIVATE = os.environ.get("IS_PRIVATE", None) #True Or None  Bot is for admins only
   CONSTANT_DUMP_CHANNEL = os.environ.get("CONSTANT_DUMP_CHANNEL", None)
-  WEBS_HOST = os.environ.get("WEBS_HOST", True) # For Render and Koyeb
+  WEBS_HOST = os.environ.get("True") # For Render and Koyeb
   
   DB_NAME = "cluster0"
   PING = time()
