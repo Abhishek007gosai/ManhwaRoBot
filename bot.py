@@ -28,7 +28,7 @@ class Vars:
   PORT = 5000
   OWNER = int(os.environ.get("OWNER","7654385403"))
   ADMINS = os.environ.get("ADMINS", "7654385403")
-  ADMINS = [int(admin) for admin in (ADMINS).split("7654385403")]
+  ADMINS = [int(admin) for admin in (ADMINS).split(" ")]
   ADMINS.append(OWNER)
   
   IS_PRIVATE = os.environ.get("IS_PRIVATE", None) #True Or None  Bot is for admins only
